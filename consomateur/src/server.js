@@ -1,6 +1,6 @@
 import * as Admin from "./redpanda/admin.js"
 import * as Producer from "./redpanda/producer.js"
-import { connection } from "./redpanda/.js"
+import { connection } from "./redpanda/consumer.js"
 
 
 import {getUser} from "./messages/userlist.js"
@@ -41,7 +41,7 @@ async function start() {
         const topic = getTopic()
         await connection(topic)
         console.log("Connexion établie")
-        
+
     }
 
 }
