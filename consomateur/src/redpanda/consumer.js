@@ -30,4 +30,5 @@ export async function connection() {
     } catch (error) {
         console.error("Error:", error)
     }
+
 }
