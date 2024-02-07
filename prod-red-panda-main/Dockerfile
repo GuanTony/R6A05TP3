@@ -1,5 +1,5 @@
 FROM node:lts-bullseye-slim
-LABEL authors="laurent"
+LABEL authors="laurent, Tony"
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
