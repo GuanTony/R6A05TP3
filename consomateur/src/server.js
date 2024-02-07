@@ -1,17 +1,18 @@
 import * as Admin from "./redpanda/admin.js"
 import * as Producer from "./redpanda/producer.js"
+import { connection } from "./redpanda/.js"
 
 
-import {getUser} from "./messages/userlist.js";
-import {getStringMessage} from "./messages/stringmessages.js";
-import {getNumberMessage} from "./messages/numbermessage.js";
-import {getConfigNumber, getDebug, getTimeOut, getTopic, getTypeMessage} from "./config/config.js";
+import {getUser} from "./messages/userlist.js"
+import {getStringMessage} from "./messages/stringmessages.js"
+import {getNumberMessage} from "./messages/numbermessage.js"
+import {getConfigNumber, getDebug, getTimeOut, getTopic, getTypeMessage} from "./config/config.js"
 
 const configNumber = getConfigNumber()
 const typeMessage = getTypeMessage()
 const topic = getTopic()
 const debug = getDebug()
-const numberWord = getNumberWord();
+const numberWord = getNumberWord()
 
 
 async function start() {
@@ -35,7 +36,18 @@ async function start() {
         }
 
     }, timeRetour)
+    async function start() {
+
+        connection()
+    }
 
 }
 
 start()
+
+
+
+
+
+
+
