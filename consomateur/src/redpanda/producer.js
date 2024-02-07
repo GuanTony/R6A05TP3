@@ -34,4 +34,14 @@ export const disconnect = async () => {
     } catch (error) {
         console.error("Error:", error);
     }
+
+    export const connexion = async (topic) => {
+        try {
+            await consumer.connect();
+            await consumer.subscribe({ topic: topic });
+            console.log("Connexion établie");
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
 }
