@@ -37,8 +37,11 @@ async function start() {
 
     }, timeRetour)
     async function start() {
-
-        connection()
+        console.log("Connexion...")
+        const topic = getTopic()
+        await connection(topic)
+        console.log("Connexion établie")
+        
     }
 
 }
