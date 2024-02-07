@@ -17,9 +17,8 @@ export async function connection() {
 
 
     try {
-        await consumer.connect();
-        await consumer.subscribe({topic: topic});
-
+        await consumer.connect()
+        await consumer.subscribe({topic: topic, fromBeginning: true})
         await consumer.run({
             eachMessage: async ({ message}) => {
                 console.log({
@@ -29,7 +28,6 @@ export async function connection() {
             },
         })
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error:", error)
     }
-
 }
