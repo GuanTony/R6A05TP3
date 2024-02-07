@@ -37,6 +37,6 @@ export const getLocalBroker = () => {
     return process.env.HOST_IP !== ""
 }
 
-export const getNumberWord = () => {
+export const getNumberWord = () => {js
     return Number(process.env.NUMBER_WORD) || 3;
 }
