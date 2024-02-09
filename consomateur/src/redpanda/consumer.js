@@ -1,5 +1,5 @@
 import {Kafka, logLevel} from "kafkajs";
-import {getConfigTopic, getLocalBroker} from "../config/config.js";
+import {getTopic, getLocalBroker} from "../config/config.js";
 import { convertTimestamp } from "./utils.js";
 
 const isLocalBroker = getLocalBroker()
@@ -11,14 +11,15 @@ const redpanda = new Kafka({
 
 
 const consumer = redpanda.consumer({groupId: "redpanda-group"});
-const topic = getConfigTopic();
+const topic = getTopic();
 
 export async function connection() {
 
 
     try {
-        await consumer.connect()
-        await consumer.subscribe({topic: topic, fromBeginning: true})
+        await consumer.connect();
+        await consumer.subscribe({topic: topic});
+
         await consumer.run({
             eachMessage: async ({ message}) => {
                 console.log({
@@ -28,7 +29,14 @@ export async function connection() {
             },
         })
     } catch (error) {
-        console.error("Error:", error)
+        console.error("Error:", error);
     }
 
 }
+
+
+connection()
+
+
+
+
