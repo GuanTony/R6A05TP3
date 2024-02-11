@@ -1,0 +1,1 @@
+export const redisOptions = { host: 'myredis', port: 6379, password: "redispwd" }
